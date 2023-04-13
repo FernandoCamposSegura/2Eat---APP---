@@ -1,8 +1,10 @@
-package com.fcampos.toeatapp;
+package com.fcampos.toeatapp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.fcampos.toeatapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
