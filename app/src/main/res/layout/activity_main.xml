@@ -4,15 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:background="#FFFFFF"
+    tools:context=".view.UserLoginView">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/main_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/pt_Username_UserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:fontFamily="@font/amaranth"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="#64C27B"
+            android:textSize="15sp"
+            android:hint="Username"
+            android:textColorHint="#BDBDBD"/>
+
+        <EditText
+            android:id="@+id/et_Password_UserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:fontFamily="@font/amaranth"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="#64C27B"
+            android:textSize="15sp"
+            android:hint="Password"
+            android:textColorHint="#BDBDBD"/>
+
+        <Button
+            android:id="@+id/bt_Enter_UserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20px"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:fontFamily="@font/amaranth"
+            android:text="ENTER"
+            app:backgroundTint="#2A8C4A" />
+
+        <Button
+            android:id="@+id/bt_Register_UserLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:fontFamily="@font/amaranth"
+            android:text="REGISTER"
+            app:backgroundTint="#64c27b" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
