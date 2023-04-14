@@ -41,7 +41,6 @@ dependencies {
 
     compileOnly "org.projectlombok:lombok:1.18.24"
     annotationProcessor "org.projectlombok:lombok:1.18.24"
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     //implementation 'com.mapbox.maps:android:10.9.1'
 

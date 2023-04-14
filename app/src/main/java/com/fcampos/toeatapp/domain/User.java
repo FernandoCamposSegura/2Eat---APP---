@@ -3,24 +3,33 @@ package com.fcampos.toeatapp.domain;
 public class User {
     private long id;
     private String username;
+    private String email;
     private String password;
     private Enum<Role> role;
 
     public User() {
     }
 
-    public User(long id, String username, String password, Enum<Role> role) {
-        this.id = id;
+    public User(String username, String email, String password, Enum<Role> role) {
         this.username = username;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    public User(long id, String username, String password) {
-        this.id = id;
+    public User(String username, String email, String password) {
         this.username = username;
+        this.email = email;
         this.password = password;
         this.role = Role.USER;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public long getId() {

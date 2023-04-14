@@ -5,32 +5,31 @@ import android.util.Log;
 import com.fcampos.toeatapp.api.ToEatAPI;
 import com.fcampos.toeatapp.api.ToEatAPIInterface;
 import com.fcampos.toeatapp.contract.UserLoginContract;
+import com.fcampos.toeatapp.contract.UserRegisterContract;
 import com.fcampos.toeatapp.domain.User;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserLoginModel implements UserLoginContract.Model {
+public class UserRegisterModel implements UserRegisterContract.Model {
     @Override
-    public void loginUser(OnLoginUserListener listener, String username, String password) {
+    public void registerUser(UserRegisterContract.Model.OnRegisterUserListener listener, User user) {
         ToEatAPIInterface toEatApi = ToEatAPI.buildInstance();
-        Call<User> callUser = toEatApi.getUserByUsernameAndPassword(username, password);
+        Call<User> callUser = toEatApi.addUser(user);
         callUser.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 User user = response.body();
-                Log.i("user", "llamada desde modelo ok -> " + response.code());
-                listener.onLoginUserSuccess(user);
+                Log.i("TAG", "llamada desde modelo ok -> " + response.code());
+                listener.onRegisterUserSuccess(user);
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
                 t.printStackTrace();
                 String message = "Error invocando a la operación";
-                listener.onLoginUserError(message);
+                listener.onRegisterUserError(message);
             }
         });
     }

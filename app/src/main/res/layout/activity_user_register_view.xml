@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.UserLoginView">
+    tools:context=".view.UserRegisterView">
 
     <ImageView
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/pt_Username_UserLogin"
+            android:id="@+id/pt_Username_UserRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20px"
@@ -38,7 +38,23 @@
             android:textColorHint="#BDBDBD"/>
 
         <EditText
-            android:id="@+id/et_Password_UserLogin"
+            android:id="@+id/pt_Email_UserRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20px"
+            android:background="@drawable/border"
+            android:fontFamily="@font/amaranth"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="#64C27B"
+            android:textSize="15sp"
+            android:hint="Email"
+            android:textColorHint="#BDBDBD"/>
+
+        <EditText
+            android:id="@+id/et_Password_UserRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20px"
@@ -54,18 +70,7 @@
             android:textColorHint="#BDBDBD"/>
 
         <Button
-            android:id="@+id/bt_Enter_UserLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20px"
-            android:layout_marginLeft="20px"
-            android:layout_marginRight="20px"
-            android:fontFamily="@font/amaranth"
-            android:text="ENTER"
-            app:backgroundTint="#2A8C4A" />
-
-        <Button
-            android:id="@+id/bt_Register_UserLogin"
+            android:id="@+id/bt_Register_UserRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px"
@@ -75,4 +80,5 @@
             app:backgroundTint="#64c27b" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
