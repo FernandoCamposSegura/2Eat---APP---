@@ -5,12 +5,12 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private Enum<Role> role;
+    private Role role;
 
     public User() {
     }
 
-    public User(String username, String email, String password, Enum<Role> role) {
+    public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -60,7 +60,7 @@ public class User {
         return role;
     }
 
-    public void setRole(Enum<Role> role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

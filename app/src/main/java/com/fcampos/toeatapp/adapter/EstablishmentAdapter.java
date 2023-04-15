@@ -1,15 +1,21 @@
 package com.fcampos.toeatapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fcampos.toeatapp.R;
 import com.fcampos.toeatapp.domain.Establishment;
+import com.fcampos.toeatapp.view.EstablishmentDetailView;
+import com.fcampos.toeatapp.view.UserLoginView;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -47,6 +53,7 @@ public class EstablishmentAdapter extends RecyclerView.Adapter<EstablishmentAdap
         public TextView tv_Name_EstablishmentList;
         public TextView tv_Description_EstablishmentList;
         public TextView tv_Address_EstablishmentList;
+        public LinearLayout lnly_Content;
         public View parentView;
 
         public EstablishmentHolder(View itemView) {
@@ -56,6 +63,21 @@ public class EstablishmentAdapter extends RecyclerView.Adapter<EstablishmentAdap
             tv_Name_EstablishmentList = itemView.findViewById(R.id.tv_Name_EstablishmentList);
             tv_Description_EstablishmentList = itemView.findViewById(R.id.tv_Description_EstablishmentList);
             tv_Address_EstablishmentList = itemView.findViewById(R.id.tv_Adress_EstablishmentList);
+            lnly_Content = itemView.findViewById(R.id.lnly_Content);
+
+            lnly_Content.setOnClickListener(lnly -> viewEstablishment(getAdapterPosition()));
+        }
+
+        private void viewEstablishment(int adapterPosition) {
+
+            Establishment establishment = establishmentList.get(adapterPosition);
+
+            Intent intent = new Intent(context, EstablishmentDetailView.class);
+            System.out.println("ID" + establishment.getId());
+            intent.putExtra("establishmentId", establishment.getId());
+            context.startActivity(intent);
         }
     }
+
+
 }

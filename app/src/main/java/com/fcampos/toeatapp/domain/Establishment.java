@@ -1,6 +1,7 @@
 package com.fcampos.toeatapp.domain;
 
 public class Establishment {
+    private long id;
     private String name;
     private String description;
     private String adress;
@@ -16,6 +17,14 @@ public class Establishment {
     }
 
     public Establishment() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {

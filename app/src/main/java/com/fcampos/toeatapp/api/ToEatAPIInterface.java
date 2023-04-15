@@ -1,5 +1,6 @@
 package com.fcampos.toeatapp.api;
 
+import com.fcampos.toeatapp.domain.Comment;
 import com.fcampos.toeatapp.domain.Establishment;
 import com.fcampos.toeatapp.domain.User;
 
@@ -9,6 +10,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ToEatAPIInterface {
@@ -21,4 +23,7 @@ public interface ToEatAPIInterface {
 
     @GET("establishments")
     Call<List<Establishment>> getEstablishments();
+
+    @GET("establishments/{establishment_id}/comments")
+    Call<List<Comment>> getCommentsByEstablishmentId(@Path("establishment_id") long establishment_id);
 }

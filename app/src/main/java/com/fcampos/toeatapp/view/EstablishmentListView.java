@@ -51,9 +51,9 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
     }
 
     @Override
-    public void showEstablishments(List<Establishment> establishmentList) {
+    public void showEstablishments(List<Establishment> establishments) {
         establishmentList.clear();
-        establishmentList.addAll(establishmentList);
+        establishmentList.addAll(establishments);
         adapter.notifyDataSetChanged();
     }
 
