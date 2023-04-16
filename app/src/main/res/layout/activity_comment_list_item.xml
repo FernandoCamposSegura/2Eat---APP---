@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
+    android:background="@drawable/conversation_bubble"
+    android:layout_margin="5dp"
     android:orientation="vertical"
-    android:elevation="15dp"
-    android:padding="20dp">
+    android:padding="25dp">
 
     <TextView
         android:id="@+id/tv_Message_CommentList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amaranth"
         android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        android:background="#FFFFFF"
-        android:fontFamily="@font/amaranth"
-        android:textColor="#000000"
-        android:textSize="20sp"
         android:text="TextView"
-        android:textAlignment="center" />
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,31 +30,25 @@
             android:id="@+id/tv_Rating_CommentList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:background="#FFFFFF"
             android:fontFamily="@font/amaranth"
-            android:textColor="#000000"
-            android:textSize="15sp"
+            android:gravity="start"
             android:text="TextView"
-            android:gravity="start" />
+            android:textColor="#000000"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/tv_DatePost_CommentList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:background="#FFFFFF"
             android:fontFamily="@font/amaranth"
-            android:textColor="#000000"
-            android:textSize="15sp"
+            android:gravity="end"
             android:text="TextView"
-            android:gravity="end" />
+            android:textColor="#808080"
+            android:textSize="15sp" />
     </LinearLayout>
 
 </LinearLayout>

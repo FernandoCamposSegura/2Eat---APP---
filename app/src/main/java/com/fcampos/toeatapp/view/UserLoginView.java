@@ -20,6 +20,8 @@ public class UserLoginView extends AppCompatActivity implements UserLoginContrac
     EditText et_Password_UserLogin;
     UserLoginPresenter presenter;
 
+    public static long USER_ID = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +32,13 @@ public class UserLoginView extends AppCompatActivity implements UserLoginContrac
         bt_Enter_UserLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                pt_Username_UserLogin = findViewById(R.id.pt_Username_UserLogin);
-//                et_Password_UserLogin = findViewById(R.id.et_Password_UserLogin);
-//
-//                String username = pt_Username_UserLogin.getText().toString();
-//                String password = et_Password_UserLogin.getText().toString();
-//
-//                presenter.loadUserByUsernameAndPassword(username, password);
-                goToEstablishmentListActivity();
+                pt_Username_UserLogin = findViewById(R.id.pt_Username_UserLogin);
+                et_Password_UserLogin = findViewById(R.id.et_Password_UserLogin);
+
+                String username = pt_Username_UserLogin.getText().toString();
+                String password = et_Password_UserLogin.getText().toString();
+
+                presenter.loadUserByUsernameAndPassword(username, password);
             }
         });
 

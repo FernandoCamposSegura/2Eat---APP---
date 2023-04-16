@@ -19,9 +19,10 @@ public class UserLoginPresenter implements UserLoginContract.Presenter,
     @Override
     public void onLoginUserSuccess(User user) {
         if(user != null) {
-            view.showMessage("Enhorabuena");
+            UserLoginView.USER_ID = user.getId();
+            view.goToEstablishmentListActivity();
         } else {
-            view.showMessage("Usuario o contraseña incorrectos");
+            view.showMessage("Username or password incorrects");
         }
     }
 

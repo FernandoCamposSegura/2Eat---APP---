@@ -1,24 +1,19 @@
 package com.fcampos.toeatapp.domain;
 
-import java.time.LocalDate;
-
 public class Comment {
     private long id;
     private int rating;
     private String message;
     private String datePost;
-    private User user;
-    private Establishment establishment;
+    private long user_id;
+    private long establishment_id;
 
-    public Comment(int rating, String message, String datePost, User user, Establishment establishment) {
+    public Comment(int rating, String message, String datePost, long userId, long establishmentId) {
         this.rating = rating;
         this.message = message;
         this.datePost = datePost;
-        this.user = user;
-        this.establishment = establishment;
-    }
-
-    public Comment() {
+        this.user_id = userId;
+        this.establishment_id = establishmentId;
     }
 
     public long getId() {
@@ -53,19 +48,19 @@ public class Comment {
         this.datePost = datePost;
     }
 
-    public User getUser() {
-        return user;
+    public long getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
     }
 
-    public Establishment getEstablishment() {
-        return establishment;
+    public long getEstablishment_id() {
+        return establishment_id;
     }
 
-    public void setEstablishment(Establishment establishment) {
-        this.establishment = establishment;
+    public void setEstablishment_id(long establishment_id) {
+        this.establishment_id = establishment_id;
     }
 }
