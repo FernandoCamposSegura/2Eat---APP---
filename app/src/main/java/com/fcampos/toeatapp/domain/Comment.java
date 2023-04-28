@@ -2,13 +2,13 @@ package com.fcampos.toeatapp.domain;
 
 public class Comment {
     private long id;
-    private int rating;
+    private double rating;
     private String message;
     private String datePost;
     private long user_id;
     private long establishment_id;
 
-    public Comment(int rating, String message, String datePost, long userId, long establishmentId) {
+    public Comment(double rating, String message, String datePost, long userId, long establishmentId) {
         this.rating = rating;
         this.message = message;
         this.datePost = datePost;
@@ -24,11 +24,11 @@ public class Comment {
         this.id = id;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 

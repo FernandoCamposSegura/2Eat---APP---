@@ -73,7 +73,8 @@ public class UserProfileView extends AppCompatActivity implements UserProfileCon
             startActivity(intent);
             return  true;
         } else if(item.getItemId() == R.id.view_favourites) {
-            Intent intent = new Intent(this, UserProfileView.class);
+            Intent intent = new Intent(this, EstablishmentListView.class);
+            intent.putExtra("onlyFavourites", true);
             startActivity(intent);
             return  true;
         } else if(item.getItemId() == R.id.view_profile) {
@@ -83,6 +84,11 @@ public class UserProfileView extends AppCompatActivity implements UserProfileCon
         }
         else if(item.getItemId() == R.id.view_best_list) {
             Intent intent = new Intent(this, UserProfileView.class);
+            startActivity(intent);
+            return  true;
+        }
+        else if(item.getItemId() == R.id.view_map_list) {
+            Intent intent = new Intent(this, EstablishmentMapView.class);
             startActivity(intent);
             return  true;
         }

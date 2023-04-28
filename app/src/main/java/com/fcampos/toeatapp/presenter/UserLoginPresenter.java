@@ -20,6 +20,7 @@ public class UserLoginPresenter implements UserLoginContract.Presenter,
     public void onLoginUserSuccess(User user) {
         if(user != null) {
             UserLoginView.USER_ID = user.getId();
+            UserLoginView.ROLE = user.getRole().toString();
             view.goToEstablishmentListActivity();
         } else {
             view.showMessage("Username or password incorrects");

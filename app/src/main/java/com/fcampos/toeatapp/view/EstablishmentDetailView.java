@@ -36,7 +36,7 @@ public class EstablishmentDetailView extends AppCompatActivity implements Establ
     private CommentAdapter adapter;
     private CommentRegisterPresenter commentRegisterPresenter;
     private EstablishmentDetailPresenter establishmentDetailPresenter;
-    private int starsCount = 0;
+    private double starsCount = 0;
     long establishmentId;
 
     @Override
@@ -53,12 +53,11 @@ public class EstablishmentDetailView extends AppCompatActivity implements Establ
             return;
 
         ratingBar = findViewById(R.id.ratingBar);
-        ratingBar.setNumStars(5);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 // Almacena la cantidad de estrellas seleccionadas en una variable
-                starsCount = (int) rating;
+                starsCount = rating;
             }
         });
 

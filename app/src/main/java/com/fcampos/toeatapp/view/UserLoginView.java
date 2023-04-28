@@ -21,6 +21,7 @@ public class UserLoginView extends AppCompatActivity implements UserLoginContrac
     UserLoginPresenter presenter;
 
     public static long USER_ID = 0;
+    public static String ROLE = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

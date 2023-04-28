@@ -7,6 +7,10 @@
         android:fontFamily="@font/amaranth"
         android:title="ESTABLISHMENTS" />
     <item
+        android:id="@+id/view_map_list"
+        android:fontFamily="@font/amaranth"
+        android:title="MAP" />
+    <item
         android:id="@+id/view_best_list"
         android:fontFamily="@font/amaranth"
         android:title="THE BEST" />

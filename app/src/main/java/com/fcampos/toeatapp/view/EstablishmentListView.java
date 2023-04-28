@@ -4,48 +4,72 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.fcampos.toeatapp.R;
 import com.fcampos.toeatapp.adapter.EstablishmentAdapter;
 import com.fcampos.toeatapp.contract.EstablishmentListContract;
+import com.fcampos.toeatapp.contract.MyFavouriteListContract;
+import com.fcampos.toeatapp.db.AppDataBase;
 import com.fcampos.toeatapp.domain.Establishment;
-import com.fcampos.toeatapp.model.EstablishmentListModel;
+import com.fcampos.toeatapp.domain.MyFavourite;
 import com.fcampos.toeatapp.presenter.EstablishmentListPresenter;
+import com.fcampos.toeatapp.presenter.MyFavouriteListPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EstablishmentListView extends AppCompatActivity implements EstablishmentListContract.View {
+public class EstablishmentListView extends AppCompatActivity implements EstablishmentListContract.View, MyFavouriteListContract.View {
 
     private List<Establishment> establishmentList;
     private EstablishmentAdapter adapter;
-    private EstablishmentListPresenter presenter;
+
+    private boolean onlyFavourites;
+
+    private EstablishmentListPresenter establishmentListPresenter;
+    private MyFavouriteListPresenter myFavouriteListPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_establishment_list_view);
 
-        presenter = new EstablishmentListPresenter(this);
+        establishmentListPresenter = new EstablishmentListPresenter(this);
+        myFavouriteListPresenter = new MyFavouriteListPresenter(this);
 
-        initializeRecyclerView();
+        establishmentList = new ArrayList<>();
+
+        Intent intent = getIntent();
+        onlyFavourites = intent.getBooleanExtra("onlyFavourites", false);
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        presenter.loadEstablishments();
+        if(!onlyFavourites) {
+
+            establishmentListPresenter.loadEstablishments();
+            initializeRecyclerView();
+        }
+        else
+            loadFavouriteList();
+
     }
 
     private void initializeRecyclerView() {
-        establishmentList = new ArrayList<>();
-
+        System.out.println("Entre aquí");
         RecyclerView recyclerView = findViewById(R.id.rv_EstablishmentList);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -67,7 +91,8 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
             startActivity(intent);
             return  true;
         } else if(item.getItemId() == R.id.view_favourites) {
-            Intent intent = new Intent(this, UserProfileView.class);
+            Intent intent = new Intent(this, EstablishmentListView.class);
+            intent.putExtra("onlyFavourites", true);
             startActivity(intent);
             return  true;
         } else if(item.getItemId() == R.id.view_profile) {
@@ -77,6 +102,11 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
         }
         else if(item.getItemId() == R.id.view_best_list) {
             Intent intent = new Intent(this, UserProfileView.class);
+            startActivity(intent);
+            return  true;
+        }
+        else if(item.getItemId() == R.id.view_map_list) {
+            Intent intent = new Intent(this, EstablishmentMapView.class);
             startActivity(intent);
             return  true;
         }
@@ -91,7 +121,22 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
     }
 
     @Override
-    public void showMessage(String message) {
+    public void loadEstablishment(Establishment establishment) {
+        establishmentList.add(establishment);
+        adapter.notifyDataSetChanged();
+    }
 
+    public void loadFavouriteList() {
+        List<MyFavourite> myFavouriteList = new ArrayList<>();
+
+        final AppDataBase db = Room.databaseBuilder(this, AppDataBase.class, "myfavourite")
+                .allowMainThreadQueries().build();
+        myFavouriteList = db.myFavouriteDAO().getAll();
+
+        for (MyFavourite myFavourite : myFavouriteList
+        ) {
+            myFavouriteListPresenter.loadMyFavourite(myFavourite.getEstablishment_id());
+        }
+        initializeRecyclerView();
     }
 }

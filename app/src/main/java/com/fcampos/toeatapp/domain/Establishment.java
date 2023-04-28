@@ -5,10 +5,10 @@ public class Establishment {
     private String name;
     private String description;
     private String adress;
-    private long longitude;
-    private long latitude;
+    private double longitude;
+    private double latitude;
 
-    public Establishment(String name, String description, String adress, long longitude, long latitude) {
+    public Establishment(String name, String description, String adress, double longitude, double latitude) {
         this.name = name;
         this.description = description;
         this.adress = adress;
@@ -51,19 +51,19 @@ public class Establishment {
         this.adress = adress;
     }
 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 }

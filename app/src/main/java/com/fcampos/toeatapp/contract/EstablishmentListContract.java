@@ -16,7 +16,6 @@ public interface EstablishmentListContract {
 
     interface View {
         void showEstablishments(List<Establishment> establishmentList);
-        void showMessage(String message);
     }
 
     interface Presenter {
