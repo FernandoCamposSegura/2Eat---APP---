@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ToEatApp</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoibmFuZGl0bzE5MTkiLCJhIjoiY2xiM2VleGExMGF6dDNwb3VybjMzZ2ltNCJ9.GK7uvzfaj2OvS_TLFrf4pw</string>
+</resources>
