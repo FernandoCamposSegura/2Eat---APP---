@@ -27,6 +27,7 @@ public class UserProfileView extends AppCompatActivity implements UserProfileCon
 
     Button bt_SignOut_UserProfile;
     Button bt_Delete_UserProfile;
+    Button bt_Update_UserProfile;
 
     UserProfilePresenter userProfilePresenter;
     UserDeletePresenter userDeletePresenter;
@@ -56,6 +57,15 @@ public class UserProfileView extends AppCompatActivity implements UserProfileCon
             public void onClick(View view) {
                 userDeletePresenter.deleteUser(UserLoginView.USER_ID);
                 goToUserLoginActivity();
+            }
+        });
+
+        bt_Update_UserProfile = findViewById(R.id.bt_Update_UserProfile);
+        bt_Update_UserProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UserProfileView.this, UserUpdateView.class);
+                startActivity(intent);
             }
         });
     }

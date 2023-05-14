@@ -34,7 +34,7 @@ public class EstablishmentMapView extends AppCompatActivity implements Establish
 
         mapView = findViewById(R.id.mapView);
         establishmentMapPresenter = new EstablishmentMapPresenter(this);
-        establishmentMapPresenter.loadEstablishments();
+        establishmentMapPresenter.loadEstablishments("");
         initializePointManager();
     }
 

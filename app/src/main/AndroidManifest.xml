@@ -18,6 +18,9 @@
         android:theme="@style/Theme.ToEatApp"
         tools:targetApi="31">
         <activity
+            android:name=".view.UserUpdateView"
+            android:exported="false" />
+        <activity
             android:name=".view.CommentUpdateView"
             android:exported="false" />
         <activity

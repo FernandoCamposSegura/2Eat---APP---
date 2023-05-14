@@ -29,7 +29,7 @@ public class EstablishmentMapPresenter implements EstablishmentListContract.Pres
     }
 
     @Override
-    public void loadEstablishments() {
-        model.loadEstablishments(this);
+    public void loadEstablishments(String filter) {
+        model.loadEstablishments(this, filter);
     }
 }

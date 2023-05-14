@@ -16,9 +16,9 @@ import retrofit2.Response;
 
 public class EstablishmentListModel implements EstablishmentListContract.Model {
     @Override
-    public void loadEstablishments(OnListEstablishmentListener listener) {
+    public void loadEstablishments(OnListEstablishmentListener listener, String filter) {
         ToEatAPIInterface toEatApi = ToEatAPI.buildInstance();
-        Call<List<Establishment>> callEstablishments = toEatApi.getEstablishments();
+        Call<List<Establishment>> callEstablishments = toEatApi.getEstablishments(filter);
         callEstablishments.enqueue(new Callback<List<Establishment>>() {
             @Override
             public void onResponse(Call<List<Establishment>> call, Response<List<Establishment>> response) {

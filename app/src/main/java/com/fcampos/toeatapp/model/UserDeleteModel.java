@@ -20,7 +20,7 @@ public class UserDeleteModel implements UserDeleteContract.Model {
         callUser.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Log.i("comments", "llamada desde delete ok -> " + response.code());
+                Log.i("users", "llamada desde delete ok -> " + response.code());
                 listener.onUserDeleteSuccess();
             }
 

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.fcampos.toeatapp.R;
@@ -38,6 +39,10 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
     private EstablishmentListPresenter establishmentListPresenter;
     private MyFavouriteListPresenter myFavouriteListPresenter;
 
+    Button bt_Search_EstablishmentList;
+    EditText et_Filter_EstablishmentList;
+    String filter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +56,19 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
         Intent intent = getIntent();
         onlyFavourites = intent.getBooleanExtra("onlyFavourites", false);
 
+        filter = intent.getStringExtra("filter");
 
+        bt_Search_EstablishmentList = findViewById(R.id.bt_Search_EstablishmentList);
+        bt_Search_EstablishmentList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et_Filter_EstablishmentList = findViewById(R.id.et_Filter_EstablishmentList);
+                String filter = et_Filter_EstablishmentList.getText().toString();
+                Intent intent = new Intent(EstablishmentListView.this, EstablishmentListView.class);
+                intent.putExtra("filter", filter);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -59,8 +76,7 @@ public class EstablishmentListView extends AppCompatActivity implements Establis
         super.onResume();
 
         if(!onlyFavourites) {
-
-            establishmentListPresenter.loadEstablishments();
+            establishmentListPresenter.loadEstablishments(filter);
             initializeRecyclerView();
         }
         else

@@ -33,7 +33,7 @@ public interface ToEatAPIInterface {
     Call<User> addUser(@Body User user);
 
     @GET("establishments")
-    Call<List<Establishment>> getEstablishments();
+    Call<List<Establishment>> getEstablishments(@Query("filter") String filter);
 
     @GET("establishments/{establishment_id}")
     Call<Establishment> getEstablishmentById(@Path("establishment_id") long establishment_id);
@@ -52,6 +52,9 @@ public interface ToEatAPIInterface {
 
     @PUT("comments/{comment_id}")
     Call<Comment> updateComment(@Path("comment_id") long id, @Body Comment comment);
+
+    @PUT("users/{user_id}")
+    Call<User> updateUser(@Path("user_id") long id, @Body User user);
 
     @DELETE("users/{user_id}")
     Call<Void> deleteUser(@Path("user_id") long id);

@@ -71,6 +71,16 @@
             app:backgroundTint="#2A8C4A"/>
 
         <Button
+            android:id="@+id/bt_Update_UserProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:fontFamily="@font/amaranth"
+            android:text="UPDATE ACCOUNT"
+            app:backgroundTint="#64c27b" />
+
+        <Button
             android:id="@+id/bt_Delete_UserProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

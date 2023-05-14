@@ -11,7 +11,7 @@ public interface EstablishmentListContract {
             void onListEstablishmentSuccess(List<Establishment> establishmentList);
             void onListEstablishmentError(String message);
         }
-        void loadEstablishments(OnListEstablishmentListener listener);
+        void loadEstablishments(OnListEstablishmentListener listener, String filter);
     }
 
     interface View {
@@ -19,6 +19,6 @@ public interface EstablishmentListContract {
     }
 
     interface Presenter {
-        void loadEstablishments();
+        void loadEstablishments(String filter);
     }
 }
